@@ -1,4 +1,4 @@
-# 黑马day4
+# heimaday4
 #函数
 str1 = "itheima"
 str2= "itcast"
