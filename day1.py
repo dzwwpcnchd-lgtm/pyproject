@@ -1,5 +1,5 @@
-#菜鸟教程 python day1
-#!----输出-------
+#python day1
+#----输出-------
 print("hello world \n")
 姓名 = "nihao"
 print(姓名)
@@ -61,20 +61,20 @@ print('argv是：',argv)
 #1
 print('Hello,Python')
 #2
-#name = ""
-#age = ''
-#name = input('请输入姓名：')
-#age = input('请输入年龄：')
-#print("姓名："+name+"\n年龄："+age)
+name = ""
+age = ''
+name = input('请输入姓名：')
+age = input('请输入年龄：')
+print("姓名："+name+"\n年龄："+age)
 #--------复盘------------
-#name = input('输入名字')
-#print(f"你好，{name}!")
-#f{}  f-string 实现name的内嵌
-#try :
-#    age = int(input('输入年龄'))
-#    print('年龄是',age + 2)
-#except ValueError:
-#    print('输入有效数字')
+name = input('输入名字')
+print(f"你好，{name}!")
+f{}  f-string 实现name的内嵌
+try :
+   age = int(input('输入年龄'))
+   print('年龄是',age + 2)
+except ValueError:
+   print('输入有效数字')
 #字符串只能连接字符串 
 print('5'+'3')
 print(5 + 3)
