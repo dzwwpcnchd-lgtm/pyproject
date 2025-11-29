@@ -1,50 +1,61 @@
+# 函数进阶
 
-# # 函数进阶
-# # 函数多返回值
-# def test_return():
-#     return 1,2,"hello"
-# x,y,z = test_return()
-# print(x,y,z)
-# # 函数多传参方式
-# def user_info(name,age,gender):
-#     print(f"姓名是{name}年龄是{age}性别是{gender}")
-# #1位置参数  需要按顺序输入
-# user_info("wang",21,"男")
-# #2关键字参数
-# user_info(name="wang",age=18,gender="女")
-# user_info(age=18,name="wang",gender="女") #打乱顺序无所谓
-# user_info("wang",age=18,gender="女") #可以和位置参数混用，但是位置参数要放在前面
-# #3缺省参数（默认）
-# def user_info(name,age,gender="男"): #设置默认值必须在最后，在前面，后面不设置，就会报错
-#     print(f"姓名是{name}年龄是{age}性别是{gender}")
-# user_info("li",20)
-# user_info("zhao",21,"女")
-# #不定长参数-位置不定长 *
-# def user_info(*args): #不定长定义的形式参数会作为元组存在，接收不定长数量的参数传入
-#     print(f"类型是{type(args)},内容是{args}")
+# 函数多返回值
+def test_return():
+    return 1,2,"hello"
 
-# user_info(1,2,"3")
-# #不定长参数-关键字不定长 **
-# def user_info(**kwargs): #不定长定义的形式参数会作为字典存在，接收不定长数量的参数传入
-#     print(f"类型是{type(kwargs)},内容是{kwargs}")
+x,y,z = test_return()
+print(x,y,z)
 
-# user_info(name="wang",age=12,gender="男")
-# # 匿名函数
-# #函数作为参数传递
-# def test_func(computer):
-#     result =  computer(1,2)
-#     print(f"结果是：{result},传入参数类型是：{type(computer)}")
+# 函数多传参方式
+def user_info(name,age,gender):
+    print(f"姓名是{name}年龄是{age}性别是{gender}")
 
-# def computer(x,y):
-#     return x+y
+#1位置参数  需要按顺序输入
+user_info("wang",21,"男")
 
-# test_func(computer)
-# #匿名函数 lambda 自带return，无法写多行 只能用一次 lambda 传参：函数体
-# def test_func(computer):
-#     result =  computer(1,2)
-#     print(f"结果是：{result},传入参数类型是：{type(computer)}")
+#2关键字参数
+user_info(name="wang",age=18,gender="女")
+user_info(age=18,name="wang",gender="女") #打乱顺序无所谓
+user_info("wang",age=18,gender="女") #可以和位置参数混用，但是位置参数要放在前面
 
-# test_func(lambda x,y:x+y)
+#3缺省参数（默认）
+def user_info(name,age,gender="男"): #设置默认值必须在最后，在前面，后面不设置，就会报错
+    print(f"姓名是{name}年龄是{age}性别是{gender}")
+
+user_info("li",20)
+user_info("zhao",21,"女")
+
+#不定长参数-位置不定长 *
+def user_info(*args): #不定长定义的形式参数会作为元组存在，接收不定长数量的参数传入
+    print(f"类型是{type(args)},内容是{args}")
+
+user_info(1,2,"3")
+
+#不定长参数-关键字不定长 **
+def user_info(**kwargs): #不定长定义的形式参数会作为字典存在，接收不定长数量的参数传入
+    print(f"类型是{type(kwargs)},内容是{kwargs}")
+
+user_info(name="wang",age=12,gender="男")
+
+# 匿名函数
+
+#函数作为参数传递
+def test_func(computer):
+    result =  computer(1,2)
+    print(f"结果是：{result},传入参数类型是：{type(computer)}")
+
+def computer(x,y):
+    return x+y
+
+test_func(computer)
+
+#匿名函数 lambda 自带return，无法写多行 只能用一次 lambda 传参：函数体
+def test_func(computer):
+    result =  computer(1,2)
+    print(f"结果是：{result},传入参数类型是：{type(computer)}")
+
+test_func(lambda x,y:x+y)
 
 def get_max(nums):
     # max_num = None
@@ -100,14 +111,12 @@ def analyze_score(score):
 
 dict1 = {"name":"wang","age":12}
 dict2 = {"name1":"li","age1":22}
-
 def merge_dicts(*dicts): #读取每个键值对，放进新字典里 如果不重复的话
     dict3 = {}
     for element in dicts:
         for key in element:
             dict3[key] = element[key]
     print(dict3)
-
 
 def merge_dicts1(*dicts): #俩个不动，直接整个放进新字典里
     dict3 = {}
@@ -122,6 +131,7 @@ def show_info(**kwargs):
         print(f"{key}:{kwargs[key]}")
 
 show_info(name="wang",age =18,score = 100)
+
 #图书管理系统
 books = [
     {"name": "Python", "author": "张三", "price": 49},

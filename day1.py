@@ -69,7 +69,7 @@ print("姓名："+name+"\n年龄："+age)
 #--------复盘------------
 name = input('输入名字')
 print(f"你好，{name}!")
-f{}  f-string 实现name的内嵌
+# f{}  f-string 实现name的内嵌
 try :
    age = int(input('输入年龄'))
    print('年龄是',age + 2)

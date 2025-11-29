@@ -1,4 +1,3 @@
-# heimaday3
 # 判断语句
 # 布尔类型，
 bool_1=True 
@@ -31,7 +30,6 @@ print(f"10 >= 11 结果是{num1>=num2}")
 print(f"10 <= 11 结果是{num1<=num2}")
 
 # if语句的基本格式
-
 age = 10
 if age >=18:
     print("成年了")
@@ -111,10 +109,10 @@ else:
 
 #猜数字
 #1
-# import random
-# print("猜数字游戏，1-10，你有三次机会")
-# num = random.randint(1,10)
-# num_1 = int(input("第一次输入猜想数字："))
+import random
+print("猜数字游戏，1-10，你有三次机会")
+num = random.randint(1,10)
+num_1 = int(input("第一次输入猜想数字："))
 
 # if num_1 > num:  #第一次判断  大了
 #     print("你失去了一次机会,大了")
@@ -265,9 +263,10 @@ while i<=9:
     i += 1
 
 # for循环的基础语法
-# name = 'it'
-# for i in name: #把name内容中每个取出赋予i临时变量 
-#     print(i)
+name = 'it'
+for i in name: #把name内容中每个取出赋予i临时变量 
+    print(i)
+
 # 练习 数有几个a
 name = 'itheima is a brand of itcast'
 count = 0
@@ -278,16 +277,16 @@ print(f"有{count}个a")
 
 # range语句
 # 1 range(num)
-# for  i in range(10): #不包含10 0-9
-#     print(i)
+for  i in range(10): #不包含10 0-9
+    print(i)
 # 2 range(num1,num2)
-# for i in range(5,10): #5-9
-#     print(i)
+for i in range(5,10): #5-9
+    print(i)
 # 3 range(num1,num2,step)
-# for i in range(5,10,2):
-#     print(i)
+for i in range(5,10,2):
+    print(i)
 
-# #练习
+#练习
 num = 20
 count = 0
 for i in range(1,num):
@@ -295,13 +294,13 @@ for i in range(1,num):
         count += 1
 print(f"有{count}个偶数。")
 
-# #变量作用域 规范 for临时变量作用于循环内 
-# for i in range(4):
-#     print(i)
-# print(i)
+#变量作用域 规范 for临时变量作用于循环内 
+for i in range(4):
+    print(i)
+print(i)
 
-# #for循环的嵌套应用 for循环可以和while循环嵌套使用
-# i = 0
+#for循环的嵌套应用 for循环可以和while循环嵌套使用
+i = 0
 for i in range(1,101):
     print(f"今天是表白的第{i}天")
     for j in range(1,11):
@@ -315,7 +314,7 @@ for i in range(1,10):
         print(f"{j}*{i}={j*i}\t",end="")
     print()
 
-# #循环中断 break:直接结束循环 和continue：中断本次循环，直接进入下一次循环
+#循环中断 break:直接结束循环 和continue：中断本次循环，直接进入下一次循环
 for i in range(1,4):
     print("语句1")
     continue
