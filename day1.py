@@ -78,7 +78,7 @@ except ValueError:
 #字符串只能连接字符串 
 print('5'+'3')
 print(5 + 3)
-
+print("你好")
 
 
 
