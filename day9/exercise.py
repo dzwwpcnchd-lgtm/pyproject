@@ -110,9 +110,10 @@ class StudentManager:
 
     def load_from_file(self,path):
         f= open(path,"r",encoding="UTF-8")
-        for line in f.readlines():
-            data_dict = json.loads(line)
-            stu = Student(data_dict["name"],data_dict["age"],data_dict["id"],data_dict["score"])
+        data = f.read()
+        data_list = json.loads(data) 
+        for i in data_list:
+            stu = Student(i["name"],i["age"],i["id"],i["score"])
             self.list_students.append(stu)
         f.close()
         return self.list_students
@@ -141,9 +142,9 @@ class StudentManager:
         print("不存在此人")
         return False
         
-    def search_student(self,name):
+    def search_student(self,id):
         for student in self.list_students:
-            if student.name == name:
+            if student.id == id:
                 print(f"{student.name},{student.age},{student.id},{student.score}")
 
     def save_from_file(self,path):
@@ -161,6 +162,60 @@ class StudentManager:
             print(f"保存失败：文件操作错误 - {e}")
         except Exception as e:
             print(f"保存失败：{e}")
+
+def main():
+    studentmanager = StudentManager()
+    while True:
+        print("1.添加学生")
+        print("2.删除学生")
+        print("3.修改学生")
+        print("4.查询学生")
+        print("5.查看所有学生")
+        print("6.保存数据")
+        print("7.加载数据")
+        print("8.退出")
+        num = input("请输入数字：")
+
+        if num == "1":
+            studentmanager.add_student(
+                name=input("输入名字："),
+                age=input("输入年龄："),
+                id=input("输入学号："),
+                score=input("输入分数：")
+            )
+        elif num == "2":
+            studentmanager.delete_student(
+                id=input("输入学号")
+            )
+        elif num == "3":
+            studentmanager.update_student(
+                id=input("输入要修改学生学号："),
+                name=input("输入修改成的姓名："),
+                age=input("输入修改成的年龄："),
+                score=input("输入要修改成的分数：")
+            )
+        elif num == "4":
+            studentmanager.search_student(
+                id=input("输入学生学号；")
+            )
+        elif num == "5":
+            for i in studentmanager.list_students:
+                print(f"姓名：{i.name},年龄：{i.age},学号：{i.id},分数：{i.score}")
+        elif num == "6":
+            studentmanager.save_from_file(
+                path=input("输入json文件名字")
+            )
+        elif num == "7":
+            studentmanager.load_from_file(
+                path=input("输入json文件名") 
+            )
+        elif num == "8":
+            break
+        else:
+            print("输入错误，将退出。")
+            break 
+
+main()
 
 
     

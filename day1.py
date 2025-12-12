@@ -77,8 +77,8 @@ except ValueError:
    print('输入有效数字')
 #字符串只能连接字符串 
 print('5'+'3')
-print(5 + 3)
 print("你好")
+print(5 + 3)
 
 
 
