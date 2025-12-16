@@ -23,38 +23,39 @@ print(f"{home_directory}")
 # os.system("ls -l")
 
 #---------os.path---------------
-print(__file__)
 # 方法
 # 描述
-os.path.abspath(path)
+path1 = "E:/rogramFiles3/python_projects"
+print(__file__)
 # 将相对路径转换为绝对路径。
-os.path.basename(path)
+print( os.path.abspath(__file__))
 # 获取路径的最后一部分，即文件名。
-os.path.dirname(path)
+print(os.path.basename(__file__))
 # 获取路径中的目录部分。
-os.path.join(*paths)
+print(os.path.dirname(__file__))
 # 拼接多个路径，自动处理路径分隔符。
-os.path.split(path)
+print(os.path.join(__file__,path1))
 # 将路径分割为目录和文件名的元组。
-os.path.splitext(path)
+print(os.path.split(__file__))
 # 将路径分割为文件名和扩展名的元组。
+print(os.path.splitext(__file__))
 # 路径信息获取
 # 方法
 # 描述
-os.path.exists(path)
 # 判断路径是否存在。
-os.path.isfile(path)
+print(os.path.exists("os和虚拟环境.py"))
 # 判断路径是否为文件。
-os.path.isdir(path)
+print(os.path.isfile("os和虚拟环境.py"))
 # 判断路径是否为目录。
-os.path.getsize(path)
+print(os.path.isdir("os和虚拟环境.py"))
 # 获取文件的大小，以字节为单位。
-os.path.getatime(path)
+print(os.path.getsize("os和虚拟环境.py"))
 # 获取文件的最后访问时间。
-os.path.getmtime(path)
+print(os.path.getatime("os和虚拟环境.py"))
 # 获取文件的最后修改时间。
-os.path.getctime(path)
+print(os.path.getmtime("os和虚拟环境.py"))
 # 获取文件的创建时间（在某些操作系统上表示最后状态更改时间）。
+print(os.path.getctime("os和虚拟环境.py"))
 
 #pathlib.Path  
 # 是 Python 标准库中用于面向对象路径操作的核心类（自 Python 3.4 引入），
@@ -62,7 +63,7 @@ os.path.getctime(path)
 # 核心特性
 
 # 1. 面向对象设计
-# 通过方法和属性操作路径，替代字符串拼接，提升代码可读性。  123
+# 通过方法和属性操作路径，替代字符串拼接，提升代码可读性。 
 from pathlib import Path
 p = Path("/home/user/file.txt")  # 创建路径对象
 
@@ -78,13 +79,12 @@ print(p.parent)  # 父目录: /home/user
 
 # 4*文件系统操作集成**
 # 封装常用文件/目录操作方法：
-# `python
 # 目录操作
 p.mkdir(parents=True, exist_ok=True)  # 递归创建目录
 p.rmdir()                             # 删除空目录
 # 文件操作
-p.writetext("Hello", encoding="utf-8")  # 写入文件
-content = p.readtext(encoding="utf-8")  # 读取文件
+p.write_text("Hello", encoding="utf-8")  # 写入文件
+content = p.read_text(encoding="utf-8")  # 读取文件
 p.unlink()                               # 删除文件
 
 # 5*路径遍历与匹配**
@@ -101,7 +101,15 @@ for py_file in Path.cwd().glob("*.py"):
 for log_file in Path.cwd().rglob("*.log"):
     print(log_file)
 
-# 与传统  os.path  对比特性 pathlib.Path  os.path 操作方式面向对象（方法/属性）字符串函数拼接路径拼接 /  运算符（ p / "subdir" ） os.path.join() 跨平台性自动处理系统差异需手动处理分隔符功能集成度包含文件读写、目录创建等操作仅路径解析，需结合  os 代码可读性更高（链式调用）较低（嵌套函数调用）典型应用场景# 创建目录并写入文件
+# 与传统  os.path  对比
+# 特性         pathlib.Pat                os.path 
+# 操作方式    面向对象（方法/属性）       字符串函数拼接
+# 路径拼接    /  运算符（ p / "subdir" ） os.path.join() 
+# 跨平台性    自动处理系统差异            需手动处理分隔符
+# 功能集成度  包含文件读写、目录创建等操作 仅路径解析，需结合  os 
+# 代码可读性  更高（链式调用）            较低（嵌套函数调用）
+
+# 典型应用场景# 创建目录并写入文件
 new_dir = Path("data/logs")
 new_dir.mkdir(exist_ok=True)
 (new_dir / "app.log").write_text("Log started")
@@ -110,6 +118,7 @@ new_dir.mkdir(exist_ok=True)
 config_path = Path.home() / ".config/app.ini"
 if config_path.exists():
     settings = config_path.read_text()
+
 # 总结： pathlib.Path  通过面向对象设计统一了路径操作逻辑，
 # 显著提升代码简洁性与可维护性，是 Python 3.4+ 推荐的文件路径处理工具。
 

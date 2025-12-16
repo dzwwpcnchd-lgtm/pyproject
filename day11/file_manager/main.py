@@ -11,19 +11,21 @@ while True:
     num = int(input("输入数字"))
     try:
         if num == 1:
-            file_ops.list_files()
+                file_ops.list_files(input("输入文件名"))
         if num == 2:
-            file_ops.make_dir(input("输入文件名"))
+                file_ops.make_dir(input("输入文件名"))
         if num == 3:
-            file_ops.del_file(input("输入删除的文件名"))
+                file_ops.del_file(input("输入删除的文件名"))
         if num == 4:
-            file_ops.read_file(input("输入读取的文件名"))
+                file_ops.read_file(input("输入读取的文件名"))
         if num == 5:
-            file_ops.write_file(name=input("输入文件名"),text=input("输入内容"))
+                file_ops.write_file(path=input("输入文件名"),text=input("输入内容"))
         if num == 6:
-            break
+                break
     except Exception as e:
         print(f"出错了{e}")
+
+
     
 
 
